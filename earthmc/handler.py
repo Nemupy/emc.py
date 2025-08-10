@@ -1,20 +1,19 @@
 import requests
 
-base_url = "https://api.earthmc.net/v3/aurora/"
+BASE_URL = "https://api.earthmc.net/v3/aurora/"
 
-def get(endpoint="", query_name=None):
-    url = base_url + endpoint
+def get(endpoint: str = "", queries = None, template: dict = None):
+    url = BASE_URL + endpoint
     
+    if queries:
+        body = {"query": queries}
+    if template:
+        body["template"] = template
+
     try:
-        if query_name:
-            data = {"query": [query_name]}
-            response = requests.post(url, json=data)
-        else:
-            response = requests.get(url)
-        
+        response = requests.get(url, json=body)
         response.raise_for_status()
         return response.json()
-    
-    except requests.exceptions.RequestException as error:
-        print(error)
+    except requests.RequestException as e:
+        print(f"[POST ERROR] {url}: {e}")
         return None
