@@ -13,21 +13,17 @@ class Town:
         self.founder = town_data["founder"]
         self.wiki = town_data["wiki"]
 
-        # Mayor
         self.mayor = town_data["mayor"]["name"]
         self.mayor_uuid = town_data["mayor"]["uuid"]
 
-        # Nation
         self.nation = town_data["nation"]["name"]
         self.nation_uuid = town_data["nation"]["uuid"]
 
-        # Timestamps
         self.timestamps = town_data["timestamps"]
         self.registered = town_data["timestamps"]["registered"]
         self.joined_nation_at = town_data["timestamps"]["joinedNationAt"]
         self.ruined_at = town_data["timestamps"]["ruinedAt"]
 
-        # Status
         self.status = town_data["status"]
         self.is_public = town_data["status"]["isPublic"]
         self.is_open = town_data["status"]["isOpen"]
@@ -40,7 +36,6 @@ class Town:
         self.has_overclaim_shield = town_data["status"]["hasOverclaimShield"]
         self.can_outsiders_spawn = town_data["status"]["canOutsidersSpawn"]
 
-        # Stats
         self.stats = town_data["stats"]
         self.num_town_blocks = town_data["stats"]["numTownBlocks"]
         self.max_town_blocks = town_data["stats"]["maxTownBlocks"]
@@ -51,7 +46,6 @@ class Town:
         self.balance = town_data["stats"]["balance"]
         self.for_sale_price = town_data["stats"]["forSalePrice"]
 
-        # Perms
         self.perms = town_data["perms"]
         self.build_perms = town_data["perms"]["build"]
         self.destroy_perms = town_data["perms"]["destroy"]
@@ -63,7 +57,6 @@ class Town:
         self.fire_flag = town_data["perms"]["flags"]["fire"]
         self.mobs_flag = town_data["perms"]["flags"]["mobs"]
 
-        # Coordinates
         self.spawn_world = town_data["coordinates"]["spawn"]["world"]
         self.spawn_x = town_data["coordinates"]["spawn"]["x"]
         self.spawn_y = town_data["coordinates"]["spawn"]["y"]
@@ -73,18 +66,13 @@ class Town:
         self.home_block = town_data["coordinates"]["homeBlock"]
         self.town_blocks = town_data["coordinates"]["townBlocks"]
 
-        # Residents
         self.residents = [resident["name"]
                           for resident in town_data["residents"]]
 
-        # Trusted
         self.trusted = [trusted["name"] for trusted in town_data["trusted"]]
 
-        # Outlaws
         self.outlaws = [outlaw["name"] for outlaw in town_data["outlaws"]]
 
-        # Quarters
         self.quarters = town_data["quarters"]
 
-        # Ranks
         self.ranks = town_data["ranks"]
